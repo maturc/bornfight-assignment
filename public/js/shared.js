@@ -44,9 +44,10 @@ const renderAlbums = (albums, artists) => {
   if(albums && artists)
     template = albums.map( album => {
       const artistName  = artists.filter( artist => artist.id === album.artistId)[0].title;
-      const favorite    = album.favorite ? '<img src="icons/favorite.svg" class="album__favorite-icon">' : '';
-      const favoriteBtn     = album.favorite ? 'album__button--active' : '';
-      const favoriteBtnText = album.favorite ? 'Remove favorite' : 'Mark as favorite';
+      const favorite         = album.favorite ? '<img src="icons/favorite.svg" class="album__favorite-icon">' : '';
+      const favoriteBtn      = album.favorite ? 'album__button--active' : '';
+      const favoriteBtnText  = album.favorite ? 'Remove favorite' : 'Mark as favorite';
+      const marginCorrection = album.favorite ? 'album__title--favorite-margin' : '';
       const releaseDate = new Date(album.releaseDate).getFullYear();
 
       return `
@@ -56,7 +57,7 @@ const renderAlbums = (albums, artists) => {
               <img src="${album.imageUrl}" alt="${album.title}" class="album__img"/>
               ${favorite}
             </div>
-            <div class="album__title">
+            <div class="album__title ${marginCorrection}">
               <h2>${album.title}</h2>
               <h3><a href="./artist/${album.artistId}" class="album__link">${artistName}</a></h3>
             </div>

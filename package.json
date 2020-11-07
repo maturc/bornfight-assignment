@@ -8,6 +8,7 @@
     "json-server": "^0.15.1"
   },
   "scripts": {
-    "start": "json-server --watch database/db-music.json --port 3004"
+    "start": "nodemon index.js http://localhost:3000",
+    "start:server": "json-server --watch database/db-music.json --port 3004"
   }
 }

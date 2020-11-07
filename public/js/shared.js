@@ -45,7 +45,10 @@ const renderAlbums = (albums, artists) => {
     template = albums.map( album => {
       const artistName  = artists.filter( artist => artist.id === album.artistId)[0].title;
       const favorite    = album.favorite ? '<img src="icons/favorite.svg" class="album__favorite-icon">' : '';
+      const favoriteBtn     = album.favorite ? 'album__button--active' : '';
+      const favoriteBtnText = album.favorite ? 'Remove favorite' : 'Mark as favorite';
       const releaseDate = new Date(album.releaseDate).getFullYear();
+
       return `
         <div class="album">
           <div class="album__main">
@@ -55,7 +58,7 @@ const renderAlbums = (albums, artists) => {
             </div>
             <div class="album__title">
               <h2>${album.title}</h2>
-              <h3><a href="./artist.html?id=${album.artistId}">${artistName}</a></h3>
+              <h3><a href="./artist/${album.artistId}" class="album__link">${artistName}</a></h3>
             </div>
           </div>
           <div class="album__details">
@@ -64,8 +67,8 @@ const renderAlbums = (albums, artists) => {
               <p>${releaseDate}<p>
             </div>
             <span>${album.price}</span>
-            <button class="album__button" onclick="handleFavoriteButton(${album.id}, ${album.favorite})">
-              Mark as favorite
+            <button class="album__button ${favoriteBtn}" onclick="handleFavoriteButton(${album.id}, ${album.favorite})">
+              ${favoriteBtnText}
             </button>
           </div>
         </div>
@@ -80,3 +83,12 @@ const renderAlbums = (albums, artists) => {
   
   albumList.innerHTML = template;
 }
+
+const searchForm = document.querySelector(".search");
+const searchInput = document.querySelector(".search__input");
+
+const handleSearchSubmit = (e) => {
+  e.preventDefault();
+  window.location = `/?q=${searchInput.value}`;
+}
+searchForm.addEventListener('submit', handleSearchSubmit);

@@ -7,8 +7,8 @@
 const fetchAlbumAndArtistData = async (query="") => {
   try {
     const uri = "http://localhost:3004/";
-    const albumsRoute  = "albums/";
-    const artistsRoute = "artists/";
+    const albumsRoute  = "albums";
+    const artistsRoute = "artists";
 
     const albumsRes = await fetch(uri+albumsRoute+query);
     const albums = await albumsRes.json();
@@ -55,7 +55,7 @@ const renderAlbums = (albums, artists) => {
             </div>
             <div class="album__title">
               <h2>${album.title}</h2>
-              <h3>${artistName}</h3>
+              <h3><a href="./artist.html?id=${album.artistId}">${artistName}</a></h3>
             </div>
           </div>
           <div class="album__details">

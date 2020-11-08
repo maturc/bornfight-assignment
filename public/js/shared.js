@@ -1,3 +1,6 @@
+//shared functions that both pages use
+//fetching data and rendering data
+
 const fetchAlbumAndArtistData = async (query="") => {
   try {
     const uri = "http://localhost:3004/";
@@ -77,54 +80,4 @@ const renderAlbums = (albums, artists) => {
     `;
   
   albumList.innerHTML = template;
-}
-
-const searchForm = document.querySelector(".search");
-const searchInput = document.querySelector(".search__input");
-
-const handleSearchSubmit = (e) => {
-  e.preventDefault();
-  window.location = `/?q=${searchInput.value}`;
-}
-searchForm.addEventListener('submit', handleSearchSubmit);
-
-
-const handleSearchSuggestions = (albums) => {
-  const searchBar = document.querySelector(".search__input");
-  searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
-    const filteredAlbums = albums.filter( album => {
-      return album.title.toLowerCase().includes(searchString)
-    });
-    renderSuggestionDropdown(searchBar, filteredAlbums);
-  });
-}
-
-const renderSuggestionDropdown = (searchBar, filteredAlbums) => {
-  suggestionTemplate = filteredAlbums.map( album => {
-    return `
-      <button type="button" onclick="handleSuggestionClick('${album.title}')">
-        ${album.title}
-      </button>
-    `;
-  }).join("");
-
-  const searchSuggestionDropdown = document.querySelector(".search__suggestions");
-  searchSuggestionDropdown.style.width = searchBar.getBoundingClientRect().width+"px";
-
-  if(searchBar.value) {
-    searchSuggestionDropdown.innerHTML = suggestionTemplate;
-    searchSuggestionDropdown.style.display = "flex";
-
-    window.addEventListener('mouseup', (event) => {
-      if (event.target != searchSuggestionDropdown && event.target.parentNode != searchSuggestionDropdown){
-        searchSuggestionDropdown.style.display = 'none';
-        }
-    });
-  }
-  else
-    searchSuggestionDropdown.style.display = "none";
-}
-const handleSuggestionClick = (title) => {
-  window.location = `/?q=${title}`
 }

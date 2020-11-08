@@ -44,17 +44,16 @@ const renderAlbums = (albums, artists) => {
       const favorite         = album.favorite ? '<img src="icons/favorite.svg" class="album__favorite-icon">' : '';
       const favoriteBtn      = album.favorite ? 'album__button--active' : '';
       const favoriteBtnText  = album.favorite ? 'Remove favorite' : 'Mark as favorite';
-      const marginCorrection = album.favorite ? 'album__title--favorite-margin' : '';
       const releaseDate = new Date(album.releaseDate).getFullYear();
 
       return `
         <div class="album">
           <div class="album__main">
-            <div>
+            <div class="album__main-img">
               <img src="${album.imageUrl}" alt="${album.title}" class="album__img"/>
               ${favorite}
             </div>
-            <div class="album__title ${marginCorrection}">
+            <div class="album__title">
               <h2>${album.title}</h2>
               <h3><a href="./artist/${album.artistId}" class="album__link">${artistName}</a></h3>
             </div>

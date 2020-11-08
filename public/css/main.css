@@ -139,6 +139,9 @@ h3 {
   min-width: 160px;
   max-width: 50%;
 }
+.album__main-img {
+  flex: 0 0 5rem;
+}
 .album__img {
   width: 3.375rem;
   height: 3.375rem;
@@ -153,13 +156,9 @@ h3 {
 .album__title {
   display: flex;
   flex-direction: column;
-   margin-left: 1.625rem;
 }
 .album__title h2 {
   margin-bottom: 0.375rem;
-}
-.album__title--favorite-margin {
-  margin-left: 0.109rem;
 }
 .album__link {
   all: inherit;

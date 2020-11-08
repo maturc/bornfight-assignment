@@ -10,6 +10,7 @@ q ? query = "&q="+q : query ="";
 const render = async () => {
   const [albums, artists] = await fetchAlbumAndArtistData("?_limit="+limit+query);
   renderAlbums(albums, artists);
+  handleSearchSuggestions(albums);
 }
 
 window.addEventListener("DOMContentLoaded", () => render());

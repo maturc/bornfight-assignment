@@ -1,7 +1,8 @@
 Second branch
-I'm not happy with the structure/design of this solution and its quite bothering me, so I will try fixing it in this branch
+I'm not happy with the structure/design of this solution and its quite bothering me, so I will try fixing it in this branch.
 
-test change
+Things I want to improve: The mock api doesnt need a server to run, gonna remove it, fixing my project structure, gonna add webpack, might be able to remove express(dunno about this one tho, might reintroduce problems which made me use it in the first place)
+
 
 # Install and run
 1. `yarn install` or `npm install`

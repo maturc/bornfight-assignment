@@ -1,3 +1,6 @@
+Second branch
+I'm not happy with the structure/design of this solution and its quite bothering me, so I will try fixing it in this branch
+
 # Install and run
 1. `yarn install` or `npm install`
 2. `yarn run start` or `npm run start`

@@ -1,3 +1,5 @@
+I wasn't happy with the structure of my solution so I improved it a bit on a [second branch](https://github.com/maturc/bornfight-assignment/tree/v2)
+
 # Install and run
 1. `yarn install` or `npm install`
 2. `yarn run start` or `npm run start`

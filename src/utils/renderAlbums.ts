@@ -29,7 +29,19 @@ const renderAlbums = (albums: IAlbums, artists: IArtists, albumListContainer: El
               <p>${releaseDate}<p>
             </div>
             <span>${album.price}</span>
-            <button class="album__button ${favoriteBtn}" onclick="handleFavoriteButton(${album.id}, ${album.favorite})">
+            <button class="album__button ${favoriteBtn}" onclick="const fav = async (id, isFavorite) => {
+              try {
+                await fetch('http://localhost:3004/albums/' + id, {
+                  method: 'PATCH',
+                  body: JSON.stringify({'favorite': !isFavorite}),
+                  headers: {'Content-type': 'application/json; charset=UTF-8'}
+                });
+                location.reload();
+              }
+              catch (error) {
+                alert('Error: Could not connect to server!');
+              }
+            }; fav(${album.id}, ${album.favorite})">
               ${favoriteBtnText}
             </button>
           </div>

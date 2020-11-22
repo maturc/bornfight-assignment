@@ -1,8 +1,5 @@
-Second branch
-I'm not happy with the structure/design of this solution and its quite bothering me, so I will try fixing it in this branch.
-
-Things I want to improve: The mock api doesnt need a server to run, gonna remove it, fixing my project structure, gonna add webpack, might be able to remove express(dunno about this one tho, might reintroduce problems which made me use it in the first place)
-
+I wasn't happy with the structure of my solution so I changed some things around in this branch.
+Added webpack and typescript, removed global variables, using imports now instead of importing all scripts directly into the html files, made everything a bit more modular and readable.
 
 # Install and run
 1. `yarn install` or `npm install`

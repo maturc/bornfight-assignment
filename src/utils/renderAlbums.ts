@@ -20,7 +20,7 @@ const renderAlbums = (albums: IAlbums, artists: IArtists, albumListContainer: El
             </div>
             <div class="album__title">
               <h2>${album.title}</h2>
-              <h3><a href="./artist/${album.artistId}" class="album__link">${artistName}</a></h3>
+              <h3><a href="/artist/${album.artistId}" class="album__link">${artistName}</a></h3>
             </div>
           </div>
           <div class="album__details">
